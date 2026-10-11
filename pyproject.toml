@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sinhalanorm"
+version = "0.1.0"
+description = "Normalize Sinhala text: fix ZWJ, vowel-order and lookalike-character errors, and convert legacy FM-font Sinhala to Unicode"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Ravindu Pabasara Karunarathna", email = "karurpabe@gmail.com"}
+]
+maintainers = [
+    {name = "Ravindu Pabasara Karunarathna", email = "karurpabe@gmail.com"}
+]
+keywords = ["sinhala", "unicode", "normalization", "nlp", "text cleaning", "fm abhaya", "legacy font", "sri lanka"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Linguistic",
+    "Typing :: Typed",
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/RavinduPabasara/sinhalanorm"
+Documentation = "https://github.com/RavinduPabasara/sinhalanorm#readme"
+Repository = "https://github.com/RavinduPabasara/sinhalanorm"
+"Bug Tracker" = "https://github.com/RavinduPabasara/sinhalanorm/issues"
+
+[project.scripts]
+sinhalanorm = "sinhalanorm.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.800",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sinhalanorm*"]
+
+[tool.setuptools.package-data]
+sinhalanorm = ["py.typed"]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
